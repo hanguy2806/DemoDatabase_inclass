@@ -50,7 +50,7 @@ namespace DemoInClass
         {
             // TODO: This line of code loads data into the 'sectionCDatabaseDataSet.StudentTable' table. You can move, or remove it, as needed.
             this.studentTableTableAdapter.Fill(this.sectionCDatabaseDataSet.StudentTable);
-
+            
         }
 
         private void Button1_Click(object sender, EventArgs e)
