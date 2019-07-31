@@ -59,6 +59,8 @@
             this.NextButton = new System.Windows.Forms.Button();
             this.StudentopenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.StudentSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openBinaryFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveBinaryFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StudentDataGridView)).BeginInit();
@@ -85,6 +87,8 @@
             this.toolStripSeparator,
             this.saveToolStripMenuItem,
             this.toolStripSeparator1,
+            this.openBinaryFileToolStripMenuItem,
+            this.saveBinaryFileToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
             this.fileToolStripMenuItem1.Size = new System.Drawing.Size(50, 29);
@@ -96,14 +100,14 @@
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
-            this.openToolStripMenuItem.Text = "&Open";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(295, 30);
+            this.openToolStripMenuItem.Text = "&Open (Text File)";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(249, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(292, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -111,19 +115,19 @@
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
-            this.saveToolStripMenuItem.Text = "&Save";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(295, 30);
+            this.saveToolStripMenuItem.Text = "&Save (Text File)";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(249, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(292, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(295, 30);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -300,6 +304,22 @@
             // 
             this.StudentopenFileDialog.FileName = "openFileDialog1";
             // 
+            // openBinaryFileToolStripMenuItem
+            // 
+            this.openBinaryFileToolStripMenuItem.Name = "openBinaryFileToolStripMenuItem";
+            this.openBinaryFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.openBinaryFileToolStripMenuItem.Size = new System.Drawing.Size(295, 30);
+            this.openBinaryFileToolStripMenuItem.Text = "Open (&Binary File)";
+            this.openBinaryFileToolStripMenuItem.Click += new System.EventHandler(this.OpenBinaryFileToolStripMenuItem_Click);
+            // 
+            // saveBinaryFileToolStripMenuItem
+            // 
+            this.saveBinaryFileToolStripMenuItem.Name = "saveBinaryFileToolStripMenuItem";
+            this.saveBinaryFileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.saveBinaryFileToolStripMenuItem.Size = new System.Drawing.Size(295, 30);
+            this.saveBinaryFileToolStripMenuItem.Text = "Save (Binary File)";
+            this.saveBinaryFileToolStripMenuItem.Click += new System.EventHandler(this.SaveBinaryFileToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(23F, 46F);
@@ -363,6 +383,8 @@
         private System.Windows.Forms.Button NextButton;
         private System.Windows.Forms.OpenFileDialog StudentopenFileDialog;
         private System.Windows.Forms.SaveFileDialog StudentSaveFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem openBinaryFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveBinaryFileToolStripMenuItem;
     }
 }
 

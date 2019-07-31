@@ -164,5 +164,75 @@ namespace DemoInClass
 
             }
         }
+
+        private void OpenBinaryFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ///configure the file dialog
+            StudentopenFileDialog.FileName = "Student.dat";
+            StudentopenFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            StudentopenFileDialog.Filter = "Text Files (*.dat|*.dat| All Files (*.*)|*.*";
+            var result = StudentopenFileDialog.ShowDialog();
+            if (result != DialogResult.Cancel)
+            {
+                //open a reader
+                try
+                {
+                    using (BinaryReader inputStream = new BinaryReader(File.Open(StudentopenFileDialog.FileName, FileMode.Open)))
+                    {
+                        //read stuff from file into the Student object
+                        Program.student.id = int.Parse(inputStream.ReadString());
+                        Program.student.StudentID = inputStream.ReadString();
+                        Program.student.FirstName = inputStream.ReadString();
+                        Program.student.LastName = inputStream.ReadString();
+
+                        //clean up
+                        inputStream.Close();
+                        inputStream.Dispose();
+                    }
+                    NextButton_Click(sender, e);
+                }
+                catch (IOException exception)
+                {
+                    Debug.WriteLine("ERROR: " + exception.Message);
+                    MessageBox.Show("ERROR: " + exception.Message, "ERROR",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch(FormatException exception)
+                {
+                    Debug.WriteLine("ERROR..." + exception.Message);
+                    MessageBox.Show("This is protected file", "Error...", MessageBoxButtons.OK);
+                }
+            }
+        }
+
+        private void SaveBinaryFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //configure the file dialog
+            StudentSaveFileDialog.FileName = "Student.dat";
+            StudentSaveFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            StudentSaveFileDialog.Filter = "Binary File (*.dat)|*.dat| All File (*.*)|*.*";
+            // open the file dialog
+            var result = StudentSaveFileDialog.ShowDialog();
+            if (result != DialogResult.Cancel)
+            {
+                using (BinaryWriter outputStream = new BinaryWriter(File.Open(StudentSaveFileDialog.FileName, FileMode.Create)))
+                {
+                    
+                    outputStream.Write(Program.student.id);
+                    outputStream.Write(Program.student.StudentID);
+                    outputStream.Write(Program.student.FirstName);
+                    outputStream.Write(Program.student.LastName);
+                    //clean up
+                    outputStream.Flush();
+                    outputStream.Close();
+                    outputStream.Dispose();
+                    // give feedback to user that the file has been saved
+                    // this is "modal" form
+                    MessageBox.Show("Binary File saved...", "Saving Binary File...", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
+            }
+    
+
+        }
     }
 }
