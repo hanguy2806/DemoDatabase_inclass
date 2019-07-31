@@ -11,6 +11,8 @@ namespace DemoInClass
         public static StartForm startForm;
         public static MainForm mainForm;
         public static AboutForm aboutForm;
+        public static Student student;
+        public static StudentInfoForm studentinfoForm;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -22,6 +24,8 @@ namespace DemoInClass
             startForm = new StartForm();
             mainForm = new MainForm();
             aboutForm = new AboutForm();
+            student = new Student();
+            studentinfoForm = new StudentInfoForm();
             Application.Run(startForm);
         }
     }
