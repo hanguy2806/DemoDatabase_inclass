@@ -127,5 +127,42 @@ namespace DemoInClass
             Program.studentinfoForm.Show();
             this.Hide();
         }
+
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            ///configure the file dialog
+            StudentopenFileDialog.FileName = "Student.txt";
+            StudentopenFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            StudentopenFileDialog.Filter = "Text Files (*.txt)|*.txt| All Files (*.*)|*.*";
+            var result = StudentopenFileDialog.ShowDialog();
+            if (result != DialogResult.Cancel)
+            {
+                //open a reader
+                try
+                {
+                    using (StreamReader inputStream = new StreamReader(File.Open(StudentopenFileDialog.FileName, FileMode.Open)))
+                    {
+                        //read stuff from file into the Student object
+                        Program.student.id = int.Parse(inputStream.ReadLine());
+                        Program.student.StudentID = inputStream.ReadLine();
+                        Program.student.FirstName = inputStream.ReadLine();
+                        Program.student.LastName = inputStream.ReadLine();
+
+                        //clean up
+                        inputStream.Close();
+                        inputStream.Dispose();
+                    }
+                    NextButton_Click(sender, e);
+                }
+                catch (IOException exception)
+                {
+                    Debug.WriteLine("ERROR: " + exception.Message);
+                    MessageBox.Show("ERROR: " + exception.Message, "ERROR",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+        }
     }
 }
